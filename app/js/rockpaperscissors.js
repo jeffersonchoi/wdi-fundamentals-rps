@@ -1,8 +1,6 @@
 ////////////////////////////////////////////////
 /*   Provided Code - Please Don't Edit   */
 ////////////////////////////////////////////////
-'use strict';
-
 function getInput() {
     console.log("Please choose either 'rock', 'paper', or 'scissors'.")
     return prompt();
@@ -57,46 +55,46 @@ function getWinner(playerMove,computerMove) {
     } else if (playerMove === "paper" && computerMove === "scissors") {
         winner = "computer";
     } else if (playerMove === "scissors" && computerMove === "rock") {
-        winner = "computer"
+        winner = "computer";
     } else winner = "tie";
     // Write code that will set winner to either 'player', 'computer', or 'tie' based on the values of playerMove and computerMove.
     // Assume that the only values playerMove and computerMove can have are 'rock', 'paper', and 'scissors'.
     // The rules of the game are that 'rock' beats 'scissors', 'scissors' beats 'paper', and 'paper' beats 'rock'.
     /* YOUR CODE HERE */
-    playToFive(winner, playerMove, computerMove);
+
     return winner;
 }
 
-function playToFive(winner, playerMove, computerMove) {
+function playToFive() {
     console.log("Let's play Rock, Paper, Scissors");
+    
     var playerWins = 0;
     var computerWins = 0;
-    // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
-    /* YOUR CODE HERE */
+
+while (playerWins < 5 && computerWins < 5) {
+    var player=getInput();
+    var computer=randomPlay();
+    var result=getWinner(player,computer);
 
 
-if (winner === "computer") {
+    if (result === "computer") {
     computerWins += 1;
+    console.log("Computer Wins!");
 }
-if (winner === "player") {
+else if (result === "player") {
     playerWins += 1;
-}
-if (winner === "tie") {
-    console.log("It is a tie!");
+    console.log("Player Wins!");
 }
 
-while (playerWins < 5 || computerWins < 5) {
-    getInput();
-}
-round(playerMove, computerMove, playerWins, computerWins);
-
-if (playerWins === 5 || computerWins === 5) {
-return [playerWins, computerWins];
-}
+    console.log(result);
     
-}
+      console.log('Player chose ' + player + ' while Computer chose ' + computer);
+        console.log('The score is currently ' + playerWins + ' to ' + computerWins + '\n');
 
-function round(playerMove, computerMove, playerWins, computerWins) {
-  console.log('Player chose ' + playerMove + ' while Computer chose ' + computerMove);
+
+}
+console.log('Player chose ' + player + ' while Computer chose ' + computer);
   console.log('The score is currently ' + playerWins + ' to ' + computerWins + '\n');
 }
+
+
